@@ -1,0 +1,16 @@
+{
+  "name": "@ciperx/x402-paid-agent-starter",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A paid agent starter on x402: one route priced in USDC on Base, a LAX offer, and a listing script",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.0"
+  }
+}

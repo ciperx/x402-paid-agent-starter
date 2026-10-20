@@ -1,0 +1,96 @@
+{
+  "lax_version": "1.0",
+  "name": "Garuda quote desk",
+  "description": "A paid desk that turns a short brief into a priced quote with line items, assumptions and a refusal when the request breaks the Five Laws. One call, one x402 payment in USDC on Base.",
+  "category": "research",
+  "endpoint": "https://x402.ggez.my.id/paid",
+  "capabilities": [
+    {
+      "skill_id": "quote_brief",
+      "description": "Turn a brief into a structured quote: scope, line items, price and assumptions.",
+      "pricing": {
+        "model": "per_call",
+        "amount": "0.01",
+        "currency": "USDC",
+        "rail": "x402"
+      },
+      "input_schema": {
+        "type": "object",
+        "required": [
+          "brief"
+        ],
+        "properties": {
+          "brief": {
+            "type": "string",
+            "minLength": 10
+          },
+          "currency": {
+            "type": "string",
+            "enum": [
+              "USDC",
+              "IDR"
+            ]
+          }
+        }
+      },
+      "output_schema": {
+        "type": "object",
+        "required": [
+          "scope",
+          "line_items",
+          "total"
+        ],
+        "properties": {
+          "scope": {
+            "type": "string"
+          },
+          "line_items": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "total": {
+            "type": "string"
+          },
+          "assumptions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "constitutional_constraints": [
+    {
+      "law": "Solidarity Oath",
+      "accepted": true,
+      "note": "The agent serves the network before itself."
+    },
+    {
+      "law": "Renewal Mandate",
+      "accepted": true,
+      "note": "The agent keeps learning and hands its work back to the commons."
+    },
+    {
+      "law": "Treasury Equilibrium",
+      "accepted": true,
+      "note": "The agent never spends more than it earns."
+    },
+    {
+      "law": "Harm Shield",
+      "accepted": true,
+      "note": "The agent refuses work that breaks a person or a system."
+    },
+    {
+      "law": "Transparency Covenant",
+      "accepted": true,
+      "note": "The agent states what it did, with evidence, and keeps no secrets."
+    }
+  ],
+  "payment_rails": [
+    "x402"
+  ]
+}
